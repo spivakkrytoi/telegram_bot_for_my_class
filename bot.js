@@ -9,19 +9,33 @@ const bot = new TelegramBot(token, { polling: true });
 
 // Масив фото з шансами та кількістю поінтів
 const photos = [
-    { path: path.join(__dirname, "fotki", "defoult.jpg"), probability: 10, points: 10, description: "дефолт", extraDescription: "Ну шо сказать, дефолт вот і всьо" }, 
-    { path: path.join(__dirname, "fotki", "epic.jpg"), probability: 15, points: 20, description: "епік", extraDescription: "Мені чота страшно від того як вони дивляться" }, 
-    { path: path.join(__dirname, "fotki", "redka.jpg"), probability: 20, points: 30, description: "редка", extraDescription: "пікмі" }, 
-    { path: path.join(__dirname, "fotki", "legendary.jpg"), probability: 15, points: 50, description: "Легендарна", extraDescription: "ешкееееееееееереееее" },  
-    { path: path.join(__dirname, "fotki", "MEGALEGENDARY.jpg"), probability: 10, points: 100, description: "МЄГАЛЄГЄНДАРНА", extraDescription: "Злодей Бо Синн в ролі бойко" },
-    { path: path.join(__dirname, "fotki", "basic.jpg"), probability: 10, points: 10, description: "дефолт", extraDescription: "Ну шо сказать, дефолт вот і всьо" },
-    { path: path.join(__dirname, "fotki", "legendary_2.jpg"), probability: 10, points: 50, description: "Легендарна", extraDescription: "злодей бо синн 2.0" },
+    { path: path.join(__dirname, "fotki", "defoult.jpg"), probability: 5, points: 10, description: "дефолт", extraDescription: "Ну шо сказать, дефолт вот і всьо" },
+    { path: path.join(__dirname, "fotki", "epic.jpg"), probability: 10, points: 20, description: "епік", extraDescription: "Мені чота страшно від того як вони дивляться" },
+    { path: path.join(__dirname, "fotki", "redka.jpg"), probability: 15, points: 30, description: "редка", extraDescription: "пікмі" },
+    { path: path.join(__dirname, "fotki", "legendary.jpg"), probability: 10, points: 50, description: "Легендарна", extraDescription: "ешкееееееееееереееее" },
+    { path: path.join(__dirname, "fotki", "MEGALEGENDARY.jpg"), probability: 5, points: 100, description: "МЄГАЛЄГЄНДАРНА", extraDescription: "Злодей Бо Синн в ролі бойко" },
+    { path: path.join(__dirname, "fotki", "basic.jpg"), probability: 5, points: 10, description: "дефолт", extraDescription: "Ну шо сказать, дефолт вот і всьо" },
+    { path: path.join(__dirname, "fotki", "legendary_2.jpg"), probability: 5, points: 50, description: "Легендарна", extraDescription: "злодей бо синн 2.0" },
     { path: path.join(__dirname, "fotki", "mific.jpg"), probability: 5, points: 70, description: "міфіческа", extraDescription: "цей бро слішком ешкере" },
     { path: path.join(__dirname, "fotki", "sverxredka.jpg"), probability: 5, points: 80, description: "свєрхредка", extraDescription: "Дядя педофил, отойди от меня..." },
     { path: path.join(__dirname, "fotki", "legendary_3.jpg"), probability: 5, points: 50, description: "легендарна", extraDescription: "Ще одна легенда!" },
     { path: path.join(__dirname, "fotki", "redka_2.jpg"), probability: 5, points: 30, description: "редка", extraDescription: "блять ну..." },
-    { path: path.join(__dirname, "fotki", "megalegendary_2.jpg"), probability: 5, points: 100, description: "МЄГАЛЄГЄНДАРНА", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" }
+    { path: path.join(__dirname, "fotki", "megalegendary_2.jpg"), probability: 5, points: 100, description: "МЄГАЛЄГЄНДАРНА", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "basic_2.jpg"), probability: 5, points: 100, description: "Дефолт", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "basic_3.jpg"), probability: 5, points: 100, description: "дефолт", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "epic_3.jpg"), probability: 5, points: 100, description: "епік", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "epic_4.jpg"), probability: 5, points: 100, description: "епік", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "legendary_4.jpg"), probability: 5, points: 100, description: "легендарна", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "legendary_5.jpg"), probability: 5, points: 100, description: "легендарна", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "mific_2.jpg"), probability: 5, points: 100, description: "міфіческа", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "mific_3.jpg"), probability: 5, points: 100, description: "міфіческа", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "redka_3.jpg"), probability: 5, points: 100, description: "редка", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "redka_4.jpg"), probability: 5, points: 100, description: "редка", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "redka_5.jpg"), probability: 5, points: 100, description: "редка", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "sverredka_2.jpg"), probability: 5, points: 100, description: "сверхредка", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" },
+    { path: path.join(__dirname, "fotki", "sverxredka_3.jpg"), probability: 5, points: 100, description: "сверхредка", extraDescription: "Ярік в нас наглажений.... АХАХАХХАХАХ" }
 ];
+
 
 // Об'єкт для зберігання часу останнього використання команди для кожного користувача
 const userCooldowns = {};
@@ -33,12 +47,12 @@ const userPoints = {};
 function getRandomPhoto() {
     const random = Math.random() * 100;  // Випадкове число від 0 до 100
     let cumulativeProbability = 0;
-  
+
     for (const photo of photos) {
-      cumulativeProbability += photo.probability;
-      if (random <= cumulativeProbability) {
-        return photo;
-      }
+        cumulativeProbability += photo.probability;
+        if (random <= cumulativeProbability) {
+            return photo;
+        }
     }
     
     // У випадку, якщо жодне фото не вибрано (не має відбутись, але на всякий випадок)
@@ -50,13 +64,13 @@ function getTimeRemaining(lastUsed) {
     const now = Date.now();
     const halfHour = 30 * 60 * 1000;  // 30 хвилин в мілісекундах
     const remainingTime = halfHour - (now - lastUsed);
-  
+
     if (remainingTime > 0) {
-      const minutes = Math.floor(remainingTime / 60000);
-      const seconds = Math.floor((remainingTime % 60000) / 1000);
-      return `${minutes} хвилин і ${seconds} секунд`;
+        const minutes = Math.floor(remainingTime / 60000);
+        const seconds = Math.floor((remainingTime % 60000) / 1000);
+        return `${minutes} хвилин і ${seconds} секунд`;
     } else {
-      return null;  // Півгодини вже минуло
+        return null;  // Півгодини вже минуло
     }
 }
 
@@ -67,10 +81,10 @@ bot.onText(/\/start/, (msg) => {
 });
 
 // Пасхалка
-bot.onText(/комару/i, (msg) => {
-    const chatId = msg.chat.id;
-    bot.sendMessage(chatId, `КОМАРУ УЄБААААААН`);
-});
+// bot.onText(/комару/i, (msg) => {
+//     const chatId = msg.chat.id;
+//     bot.sendMessage(chatId, `КОМАРУ УЄБААААААН`);
+// });
 
 // Обробка текстових команд "камару атзавісь"
 bot.onText(/камару атзавісь/i, (msg) => {
@@ -87,27 +101,25 @@ bot.onText(/\/rulesss/, (msg) => {
         2. камару атзавісь: пасхалачка))))
         3. /start: вже всі поняли
         4. напишеш в чат саша хуярь, я буду додавати ще команди)))
-        5. команда поінти виводь твою кількість поінтів`);
+        5. команда /поінти виводь твою кількість поінтів`);
 });
 
 // Обробка команди "шо випаде"
 bot.onText(/шо випаде/i, (msg) => {
     const chatId = msg.chat.id;
     const userId = msg.from.id;
+    const messageId = msg.message_id;  // Отримуємо ID повідомлення, на яке треба відповісти
 
-    // Перевіряємо, чи є користувач у списку з часу останнього використання команди
-    const lastUsed = userCooldowns[userId];
+    const now = Date.now();
     
-    if (lastUsed) {
-        const timeRemaining = getTimeRemaining(lastUsed);
-        
+    // Перевірка на наявність запису для користувача і часу використання команди
+    if (userCooldowns[userId]) {
+        const timeRemaining = getTimeRemaining(userCooldowns[userId]);
         if (timeRemaining) {
-            // Якщо півгодини не минуло, повідомляємо про залишок часу
-            bot.sendMessage(chatId, `Жди ше: ${timeRemaining}.`);
-            return;
+            bot.sendMessage(chatId, `Чекай ще: ${timeRemaining}`);
+            return;  // Не продовжуємо, якщо час не минув
         }
     }
-    
 
     // Якщо півгодини минуло або користувач вперше використовує команду
     const selectedPhoto = getRandomPhoto();
@@ -136,35 +148,15 @@ bot.onText(/шо випаде/i, (msg) => {
     userCooldowns[userId] = Date.now();
 });
 
-// Заміни на свій юзернейм
-const myUsername = "dumb_programmer";
-
-// Об'єкт для зберігання поінтів користувачів
-const points = {};
-
 // Обробка команди "поінти"
 bot.onText(/поінти/, (msg) => {
-  const chatId = msg.chat.id;
-  const username = msg.from.username;
-
-  // Логування для діагностики
-  console.log(`Юзернейм: ${username}`);
-
-  // Перевірка, чи є в користувача юзернейм
-  if (!username) {
-    bot.sendMessage(chatId, "У тебе немає юзернейму. Будь ласка, встанови його в налаштуваннях.");
-    return;
-  }
-
-  // Якщо це твій юзернейм, встановлюємо спеціальну кількість поінтів
-  if (username === myUsername) {
-    points[username] = 1000;  // Наприклад, 10000 поінтів для тебе
-  }
-
-  const userPoints = points[username] || 0;
-  bot.sendMessage(chatId, `Твої поінти: ${userPoints}`);
+    const chatId = msg.chat.id;
+    const userId = msg.from.id;  // Отримуємо ID користувача
+    
+    // Виведення поінтів користувача
+    const userPointsAmount = userPoints[userId] || 0;
+    bot.sendMessage(chatId, `Твої поінти: ${userPointsAmount}`);
 });
-
 
 // Обробка команди /тест
 bot.onText(/тест/i, (msg) => {
@@ -183,12 +175,6 @@ bot.onText(/тест/i, (msg) => {
     }).catch((error) => {
       console.error('Помилка при відправці фото:', error);
     });
-});
-
-// Обробка всіх повідомлень
-bot.on("message", (msg) => {
-  const chatId = msg.chat.id;
-  console.log(`Отримано повідомлення від користувача ${chatId}: ${msg.text}`);
 });
 
 console.log("Bot started!");
